@@ -53,6 +53,7 @@ type FileJournalChunkDequeue struct {
 }
 
 type FileJournalChunk struct {
+	Size      int64
 	head      FileJournalChunkDequeueHead
 	container *FileJournalChunkDequeue
 	Path      string
@@ -60,7 +61,6 @@ type FileJournalChunk struct {
 	TSuffix   string
 	Timestamp int64
 	UniqueId  []byte
-	Size      int64
 	refcount  int32
 	mtx       sync.Mutex
 }
